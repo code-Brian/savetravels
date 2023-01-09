@@ -15,11 +15,12 @@
 		<title>Expense | Update</title>
 	</head>
 	<body>
-		<div class="container bg-light mt-3">
+		<div class="container bg-light mt-3 rounded p-3">
 			<h1 class="text-primary">Save Travels</h1>
 			<div class="container w-25">
 				<h2 class="text-primary">Edit an Expense</h2>
-				<form:form class="form" action="/expense/create" method="POST" modelAttribute="expense">
+				<form:form class="form" action="/expense/${expense.id}/update" method="POST" modelAttribute="expense">
+					<input type="hidden" name="_method" value="PUT"/>
 					<div class="">
 						<form:label class="form-label" path="name">Expense Name</form:label>
 						<form:input class="form-control form-control-sm" path="name" value="${expense.name}"/>
@@ -42,6 +43,7 @@
 					</div>
 					<button class="btn btn-sm btn-primary p-1 my-3">Save Expense</button>
 				</form:form>
+				<a class="btn btn-success p-3" href="/">Home</a>
 			</div>
 		</div>
 	</body>

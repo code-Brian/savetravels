@@ -33,7 +33,13 @@
 							<td><c:out value="${expense.name}"/></td>
 							<td><c:out value="${expense.vendor}"/></td>
 							<td><fmt:formatNumber value="${expense.amount}" type="currency"/></td>
-							<td><a href="">Edit</a> <a class="btn btn-sm btn-danger p-1" href="" >Delete</a></td>
+							<td>
+								<a class="me-2" href="/expense/${expense.id}/update">Edit</a>
+								<form style="display:inline;" action="/expense/${expense.id}/delete" method="POST">
+									<input type="hidden" name="_method" value="DELETE"/>
+									<button class="btn btn-danger btn-sm p-1">Delete</button>
+								</form>
+							</td>
 						</tr>
 					</c:forEach>
 				</tbody>

@@ -39,6 +39,11 @@ public class ExpenseController {
 		
 	}
 	
+	@GetMapping("/expense/{id}")
+	public String getOne(@PathVariable("id") Long id, Model model) {
+		model.addAttribute("expense", expenseServ.getOne(id));
+		return "viewExpense.jsp";
+	}
 	// This route queries the DB with a GET request which matches the ID of the expense queried
 	@GetMapping("/expense/{id}/update")
 	public String editExpense(@PathVariable("id") Long id, Model model) {
